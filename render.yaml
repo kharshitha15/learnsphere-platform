@@ -4,10 +4,10 @@ services:
   # ----------------------------------------------------
   - type: web
     name: learnsphere-backend
-    env: docker
+    runtime: docker
+    plan: free
     dockerfilePath: ./learnsphere-backend/Dockerfile
     dockerContext: ./learnsphere-backend
-    plan: free
     healthCheckPath: /api/courses
     envVars:
       - key: PORT
@@ -26,11 +26,10 @@ services:
   # ----------------------------------------------------
   - type: web
     name: learnsphere-frontend
-    env: static
+    runtime: static
     rootDir: ./learnsphere-frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
-    plan: free
     routes:
       - type: rewrite
         source: /*
