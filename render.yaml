@@ -36,7 +36,4 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: learnsphere-backend
-          property: host
+        value: https://learnsphere-backend-xm9f.onrender.com
