@@ -13,11 +13,11 @@ services:
       - key: PORT
         value: 8080
       - key: SPRING_DATASOURCE_URL
-        sync: false
+        value: jdbc:h2:file:/app/data/learnsphere;DB_CLOSE_DELAY=-1;MODE=MySQL;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE
       - key: SPRING_DATASOURCE_USERNAME
-        sync: false
+        value: sa
       - key: SPRING_DATASOURCE_PASSWORD
-        sync: false
+        value: ""
       - key: JWT_SECRET
         generateValue: true
 
@@ -37,4 +37,7 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        sync: false
+        fromService:
+          type: web
+          name: learnsphere-backend
+          property: host
