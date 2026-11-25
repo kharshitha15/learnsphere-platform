@@ -15,6 +15,10 @@
 
 [**Explore Live Web Application 🚀**](https://learnsphere-frontend-tz2j.onrender.com/) • [**Backend REST API 📡**](https://learnsphere-backend-xm9f.onrender.com/api/courses) • [**Report an Issue 🐛**](https://github.com/kharshitha15/learnsphere-platform/issues)
 
+<br/><br/>
+
+<img src="docs/images/learnsphere_homepage_preview.jpg" alt="LearnSphere Platform" width="100%" />
+
 </div>
 
 ---
@@ -45,9 +49,9 @@ Test the platform across different roles with pre-configured demo accounts:
 
 <div align="center">
 
-### 1. Student Learning Hub & Dashboard
-![Student Dashboard](docs/images/student_dashboard_preview.png)
-*Unified student dashboard displaying enrolled courses, live progress tracking, recent achievements, and notifications.*
+### 1. Modern Course Discovery & Learning Marketplace
+![LearnSphere Marketplace](docs/images/learnsphere_homepage_preview.jpg)
+*Comprehensive course catalog with category filters, enrolled student metrics, and instant course discovery.*
 
 <br/>
 
