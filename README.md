@@ -55,9 +55,9 @@ Test the platform across different roles with pre-configured demo accounts:
 
 <br/>
 
-### 2. Interactive Video Learning Player
-![Course Player](docs/images/course_player_preview.jpg)
-*Full-featured learning player with modular topic navigation, video playback, lesson notes, and curriculum outline.*
+### 2. Personalized Student Learning Hub & Dashboard
+![Student Dashboard](docs/images/student_dashboard_preview.jpg)
+*Unified student dashboard tracking enrolled courses, learning streak, weekly study activity, and direct course resumption.*
 
 <br/>
 
