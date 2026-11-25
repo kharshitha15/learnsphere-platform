@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 520" width="100%" height="100%" style="background:#ffffff; font-family:'Segoe UI', Arial, sans-serif;">
+  <defs>
+    <filter id="erShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="erArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <!-- Banner -->
+  <rect x="25" y="15" width="900" height="50" rx="6" fill="#0f766e" filter="url(#erShadow)"/>
+  <text x="475" y="46" fill="#ffffff" font-size="18" font-weight="bold" text-anchor="middle">DIAGRAM 3: CORE DATABASE SCHEMA &amp; RELATIONAL ARCHITECTURE</text>
+
+  <!-- Table 1: USERS -->
+  <g transform="translate(40, 90)">
+    <rect x="0" y="0" width="220" height="175" rx="6" fill="#ffffff" stroke="#0f766e" stroke-width="2" filter="url(#erShadow)"/>
+    <rect x="0" y="0" width="220" height="32" rx="6" fill="#0f766e"/>
+    <rect x="0" y="24" width="220" height="8" fill="#0f766e"/>
+    <text x="110" y="22" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">users</text>
+    
+    <text x="15" y="52" fill="#b91c1c" font-size="11" font-weight="bold">PK  id: BIGINT</text>
+    <text x="15" y="72" fill="#334155" font-size="11">     email: VARCHAR (Unique)</text>
+    <text x="15" y="92" fill="#334155" font-size="11">     password: VARCHAR (BCrypt)</text>
+    <text x="15" y="112" fill="#334155" font-size="11">     full_name: VARCHAR</text>
+    <text x="15" y="132" fill="#15803d" font-size="11" font-weight="bold">     role: ENUM (STUDENT, ...)</text>
+    <text x="15" y="152" fill="#64748b" font-size="10.5">     created_at: TIMESTAMP</text>
+  </g>
+
+  <!-- Table 2: COURSES -->
+  <g transform="translate(365, 90)">
+    <rect x="0" y="0" width="220" height="175" rx="6" fill="#ffffff" stroke="#1d4ed8" stroke-width="2" filter="url(#erShadow)"/>
+    <rect x="0" y="0" width="220" height="32" rx="6" fill="#1d4ed8"/>
+    <rect x="0" y="24" width="220" height="8" fill="#1d4ed8"/>
+    <text x="110" y="22" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">courses</text>
+    
+    <text x="15" y="52" fill="#b91c1c" font-size="11" font-weight="bold">PK  id: BIGINT</text>
+    <text x="15" y="72" fill="#334155" font-size="11">     title: VARCHAR</text>
+    <text x="15" y="92" fill="#334155" font-size="11">     category: VARCHAR</text>
+    <text x="15" y="112" fill="#334155" font-size="11">     difficulty: VARCHAR</text>
+    <text x="15" y="132" fill="#d97706" font-size="11" font-weight="bold">FK  instructor_id: BIGINT</text>
+    <text x="15" y="152" fill="#64748b" font-size="10.5">     description: TEXT</text>
+  </g>
+
+  <!-- Table 3: MODULES & LESSONS -->
+  <g transform="translate(685, 90)">
+    <rect x="0" y="0" width="220" height="175" rx="6" fill="#ffffff" stroke="#7c3aed" stroke-width="2" filter="url(#erShadow)"/>
+    <rect x="0" y="0" width="220" height="32" rx="6" fill="#7c3aed"/>
+    <rect x="0" y="24" width="220" height="8" fill="#7c3aed"/>
+    <text x="110" y="22" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">modules &amp; lessons</text>
+    
+    <text x="15" y="52" fill="#b91c1c" font-size="11" font-weight="bold">PK  id: BIGINT</text>
+    <text x="15" y="72" fill="#d97706" font-size="11" font-weight="bold">FK  course_id: BIGINT</text>
+    <text x="15" y="92" fill="#334155" font-size="11">     module_order: INT</text>
+    <text x="15" y="112" fill="#334155" font-size="11">     lesson_type: ENUM (VIDEO)</text>
+    <text x="15" y="132" fill="#334155" font-size="11">     content: LONGTEXT</text>
+    <text x="15" y="152" fill="#64748b" font-size="10.5">     duration: INT (mins)</text>
+  </g>
+
+  <!-- Table 4: ENROLLMENTS (Centerpiece with Unique Key) -->
+  <g transform="translate(190, 305)">
+    <rect x="0" y="0" width="260" height="165" rx="6" fill="#fefce8" stroke="#ca8a04" stroke-width="2" filter="url(#erShadow)"/>
+    <rect x="0" y="0" width="260" height="32" rx="6" fill="#ca8a04"/>
+    <rect x="0" y="24" width="260" height="8" fill="#ca8a04"/>
+    <text x="130" y="22" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">enrollments (Core Ledger)</text>
+    
+    <text x="15" y="52" fill="#b91c1c" font-size="11" font-weight="bold">PK  id: BIGINT</text>
+    <text x="15" y="72" fill="#d97706" font-size="11" font-weight="bold">FK  student_id: BIGINT</text>
+    <text x="15" y="92" fill="#d97706" font-size="11" font-weight="bold">FK  course_id: BIGINT</text>
+    <text x="15" y="112" fill="#15803d" font-size="11" font-weight="bold">     progress_percentage: DOUBLE</text>
+    <text x="15" y="132" fill="#b91c1c" font-size="10" font-weight="bold">UNIQUE KEY: (student_id, course_id)</text>
+    <text x="15" y="148" fill="#64748b" font-size="10">➔ Eliminates duplicate course taking</text>
+  </g>
+
+  <!-- Table 5: CERTIFICATES -->
+  <g transform="translate(530, 305)">
+    <rect x="0" y="0" width="250" height="165" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" filter="url(#erShadow)"/>
+    <rect x="0" y="0" width="250" height="32" rx="6" fill="#16a34a"/>
+    <rect x="0" y="24" width="250" height="8" fill="#16a34a"/>
+    <text x="125" y="22" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">certificates</text>
+    
+    <text x="15" y="52" fill="#b91c1c" font-size="11" font-weight="bold">PK  id: BIGINT</text>
+    <text x="15" y="72" fill="#d97706" font-size="11" font-weight="bold">FK  student_id: BIGINT</text>
+    <text x="15" y="92" fill="#d97706" font-size="11" font-weight="bold">FK  course_id: BIGINT</text>
+    <text x="15" y="112" fill="#15803d" font-size="11" font-weight="bold">     certificate_id: VARCHAR (Unique)</text>
+    <text x="15" y="130" fill="#64748b" font-size="10.5">     (e.g., CERT-LS-2026-2036DC)</text>
+    <text x="15" y="148" fill="#334155" font-size="10.5">     issue_date: TIMESTAMP</text>
+  </g>
+
+  <!-- Relationship Lines -->
+  <!-- Users -> Enrollments -->
+  <line x1="150" y1="265" x2="250" y2="305" stroke="#64748b" stroke-width="2" stroke-dasharray="4" marker-end="url(#erArrow)"/>
+  <!-- Courses -> Enrollments -->
+  <line x1="430" y1="265" x2="350" y2="305" stroke="#64748b" stroke-width="2" stroke-dasharray="4" marker-end="url(#erArrow)"/>
+  <!-- Courses -> Modules -->
+  <line x1="585" y1="175" x2="685" y2="175" stroke="#64748b" stroke-width="2" marker-end="url(#erArrow)"/>
+  <!-- Enrollments -> Certificates -->
+  <line x1="450" y1="380" x2="530" y2="380" stroke="#16a34a" stroke-width="2.5" marker-end="url(#erArrow)"/>
+  <text x="490" y="372" fill="#15803d" font-size="9.5" font-weight="bold" text-anchor="middle">100%</text>
+
+  <!-- Explanation footer -->
+  <rect x="25" y="480" width="900" height="30" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="475" y="500" fill="#475569" font-size="11" text-anchor="middle">Entity Integrity: Cascading delete removes submissions and progress cleanly when user invokes account deletion.</text>
+</svg>
